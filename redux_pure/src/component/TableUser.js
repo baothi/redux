@@ -5,6 +5,8 @@ import axios from "axios"
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllUsers } from '../action/actions';
+import { deleteUserRedux } from "../action/actions";
+
 
 const TableUser = () => {
   // const [listUsers, setListUsers] = useState();
@@ -26,7 +28,7 @@ const TableUser = () => {
   }, [])
 
   const handleDeleteUser = (user) => {
-    console.log(user);
+    dispatch(deleteUserRedux(user.id));
   };
 
   if (isError === false && isLoading === true) {
