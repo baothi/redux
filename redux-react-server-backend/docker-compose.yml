@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  db:
+    container_name: redux-react-server
+    image: postgres:14.6
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: reduxreact
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_PORT: 5432
+      DATABASE_HOST: 127.0.0.1
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
+    restart: always
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   image: nodejs_backend_express
+  #   container_name: nodejs_backend_express
+  #   environment:
+  #     - DATABASE_URL=postgres://db/nodejs_backend
+  #     - SITE_URL=http://localhost:8080
+  #     - DB_HOST=host.docker.internal
+  #   # volumes:
+  #   #   - .:/app
+  #   # working_dir: /app
+  #   ports:
+  #     - 8080:8080
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - db
+
+volumes:
+  postgres:
