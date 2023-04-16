@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 import { connect } from "react-redux"
 
@@ -9,9 +9,10 @@ import {
 } from './action/actions';
 
 import store from "./redux/store"
-import axios from "axios"
+
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from 'react';
+
+import Home from './component/Home';
 
 
 function App(props) {
@@ -33,20 +34,12 @@ function App(props) {
     // })
   }
 
-  const fetchAllUsers = async () => {
-    const res = await axios.get("http://localhost:8080/users/all");
-    const data = res && res.data ? res.data : [];
-    console.log("check data axios response : ", data)
-  }
 
-  useEffect(() => {
-    fetchAllUsers();
-  }, [])
 
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -56,7 +49,8 @@ function App(props) {
         <button onClick={() => handleIncrease()}>Increase Count</button>
 
         <button onClick={() => dispatch(decreaseCounter())}>Decrease Count</button>
-      </header>
+      </header> */}
+      <Home />
     </div>
   );
 }
