@@ -44,11 +44,12 @@ const TableUser = () => {
             </tr>
           </thead>
           <tbody>
-            <div>
-              Something is loading data
-            </div>
+
           </tbody>
         </Table>
+        <div>
+          Something is loading data
+        </div>
       </Container>
     )
   }
@@ -98,9 +99,10 @@ const TableUser = () => {
             </tr>
           </thead>
           <tbody>
-            <div>Something wrongs, please try again ....</div>
+
           </tbody>
         </Table>
+        <div>Something wrongs, please try again ....</div>
       </Container>
     )
   }
